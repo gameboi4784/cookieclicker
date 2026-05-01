@@ -17282,6 +17282,7 @@ window.onload=function()
 					next();
 				},
 				function(next){
+					Game.LoadMod('https://cookiemonsterteam.github.io/CookieMonster/dist/CookieMonster.js');
 					if (typeof PRESETMODS!=='undefined' && PRESETMODS.length>0)
 					{
 						var mods=PRESETMODS;
