@@ -17306,9 +17306,9 @@ window.onload=function()
 				},
 				function(){
 					Game.Launch();
-					if (top!=self && !Game.local) Game.ErrorFrame();
-					else
-					{
+					
+					
+					
 						console.log('[=== '+choose([
 							'Oh, hello!',
 							'hey, how\'s it hangin',
@@ -17319,7 +17319,7 @@ window.onload=function()
 						Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
 						//try {Game.Load(Game.Init);}
 						//catch(err) {console.log('ERROR : '+err.message);}
-					}
+					
 				},
 			];
 			var doLaunchStep=function(step)
