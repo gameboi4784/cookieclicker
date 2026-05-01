@@ -17303,22 +17303,34 @@ window.onload=function()
 					if (App && App.loadMods) App.loadMods(next);
 					else if (next) next();
 				},
-				function(){
-					Game.Launch();
-					if (top!=self && !Game.local) Game.ErrorFrame();
-					else
-					{
-						console.log('[=== '+choose([
-							'Oh, hello!',
-							'hey, how\'s it hangin',
-							'About to cheat in some cookies or just checking for bugs?',
-							'Remember : cheated cookies taste awful!',
-							'Hey, Orteil here. Cheated cookies taste awful... or do they?',
-						])+' ===]');
-						Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
-						//try {Game.Load(Game.Init);}
-						//catch(err) {console.log('ERROR : '+err.message);}
-					}
+				function() {
+				    try {
+				        Game.Launch();
+				    } catch(e) {
+				        console.log("Launch error ignored:", e);
+				    }
+				
+				    // Force skip of ErrorFrame no matter what
+				    // (top!=self && !Game.local) is never checked
+				    console.log('[=== '+choose([
+				        'Oh, hello!',
+				        'hey, how\'s it hangin',
+				        'About to cheat in some cookies or just checking for bugs?',
+				        'Remember : cheated cookies taste awful!',
+				        'Hey, Orteil here. Cheated cookies taste awful... or do they?',
+				    ])+' ===]');
+				
+				    // Always attempt to load + init
+				    try {
+				        Game.Load(function(){
+				            Game.Init();
+				            if (firstLaunch) Game.showLangSelection(true);
+				        });
+				    } catch(e) {
+				        console.log("Load/Init error ignored:", e);
+				    }
+				}
+
 				},
 			];
 			var doLaunchStep=function(step)
