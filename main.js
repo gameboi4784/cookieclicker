@@ -17332,7 +17332,7 @@ window.onload=function()
 			
 		}
 		
-		Game.LoadMod('https://cookiemonsterteam.github.io/CookieMonster/dist/CookieMonster.js');
+		//Game.LoadMod('https://cookiemonsterteam.github.io/CookieMonster/dist/CookieMonster.js');
 		
 		var showLangSelect=function(callback)
 		{
